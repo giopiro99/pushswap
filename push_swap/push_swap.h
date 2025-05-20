@@ -6,7 +6,7 @@
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:08:31 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/28 13:39:19 by gpirozzi         ###   ########.fr       */
+/*   Updated: 2025/05/20 16:54:25 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,20 @@
 # include <limits.h>
 # include "./libft/libft.h"
 
-typedef struct s_stack
-{
-	int				nbr;
-	int				index;
-	int				chunk;
-	struct s_stack	*next;
-}	t_stack;
+/**
+ * @struct s_stack
+ * @brief Node of the linked list used as a stack.
+ *
+ * Contains the integer value, an index for sorting,
+ * a chunk number for chunking the data, and a pointer to the next node.
+ */
+ typedef struct s_stack
+ {
+	 int             nbr;    /**< Integer value stored in the node */
+	 int             index;  /**< Index used for sorting */
+	 int             chunk;  /**< Chunk number assigned to this node */
+	 struct s_stack  *next;  /**< Pointer to the next node in the stack */
+ }   t_stack;
 
 //for errors
 int				error_syntax(char *str);
@@ -47,7 +54,7 @@ void			move_to_top(t_stack **a, t_stack *node);
 void			move_to_top_b(t_stack **b, t_stack *node);
 void			ft_clean_matrix(char **matrix);
 
-//per chunk
+//for chunks
 int				assign_chunk(t_stack *stack);
 int				find_median(t_stack *stack);
 int				move_chunks_to_b(t_stack **a, t_stack **b, int max_chunk);

@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnicolo <gnicolo@student.42firenze.it>     +#+  +:+       +#+        */
+/*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:54:55 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/24 17:57:31 by gnicolo          ###   ########.fr       */
+/*   Updated: 2025/05/20 16:40:56 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Returns the last node of the stack.
+ *
+ * @param stack Pointer to the head of the stack.
+ * @return Pointer to the last node, or NULL if stack is empty.
+ */
 t_stack	*find_last(t_stack *stack)
 {
 	if (!stack)
@@ -21,6 +27,12 @@ t_stack	*find_last(t_stack *stack)
 	return (stack);
 }
 
+/**
+ * @brief Calculates the number of nodes in the stack.
+ *
+ * @param stack Pointer to the head of the stack.
+ * @return The number of elements in the stack.
+ */
 int	stack_len(t_stack *stack)
 {
 	int	len;
@@ -36,6 +48,12 @@ int	stack_len(t_stack *stack)
 	return (len);
 }
 
+/**
+ * @brief Checks if the stack is sorted in ascending order.
+ *
+ * @param stack Pointer to the head of the stack.
+ * @return true if sorted, false otherwise.
+ */
 bool	stack_sorted(t_stack *stack)
 {
 	if (!stack)
@@ -49,6 +67,12 @@ bool	stack_sorted(t_stack *stack)
 	return (true);
 }
 
+/**
+ * @brief Finds the node with the minimum value in the stack.
+ *
+ * @param stack Pointer to the head of the stack.
+ * @return Pointer to the node with the minimum value, or NULL if stack is empty.
+ */
 t_stack	*find_min(t_stack *stack)
 {
 	long			min;
@@ -70,6 +94,12 @@ t_stack	*find_min(t_stack *stack)
 	return (min_node);
 }
 
+/**
+ * @brief Finds the node with the maximum value in the stack.
+ *
+ * @param stack Pointer to the head of the stack.
+ * @return Pointer to the node with the maximum value, or NULL if stack is empty.
+ */
 t_stack	*find_max(t_stack *stack)
 {
 	long			max;

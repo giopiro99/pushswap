@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   for_chunks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnicolo <gnicolo@student.42firenze.it>     +#+  +:+       +#+        */
+/*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:37:13 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/24 18:01:26 by gnicolo          ###   ########.fr       */
+/*   Updated: 2025/05/20 16:50:15 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Assigns chunk indices to each node in the stack based on their sorted index.
+ *
+ * Divides the stack into chunks of fixed size (20 if stack size ≤ 100, else 39).
+ * Each node's chunk is set by integer division of its index by chunk size.
+ *
+ * @param stack Pointer to the head of the stack.
+ * @return int The highest chunk index assigned.
+ */
 int	assign_chunk(t_stack *stack)
 {
 	int			size_a;
@@ -35,6 +44,14 @@ int	assign_chunk(t_stack *stack)
 	return (max->chunk);
 }
 
+/**
+ * @brief Finds the median value of the stack based on node values.
+ *
+ * Assumes the stack is sorted or partially sorted. Returns the middle element's nbr.
+ *
+ * @param stack Pointer to the head of the stack.
+ * @return int The median number value; 0 if stack is empty.
+ */
 int	find_median(t_stack *stack)
 {
 	int			size;
@@ -57,6 +74,13 @@ int	find_median(t_stack *stack)
 	return (median);
 }
 
+/**
+ * @brief Checks if any node in the stack belongs to the given chunk.
+ *
+ * @param a Pointer to the head of the stack.
+ * @param chunk The chunk index to search for.
+ * @return int Returns 1 if any node has the chunk, 0 otherwise.
+ */
 int	has_chunk(t_stack *a, int chunk)
 {
 	while (a)
@@ -68,6 +92,20 @@ int	has_chunk(t_stack *a, int chunk)
 	return (0);
 }
 
+/**
+ * @brief Moves nodes from stack 'a' to stack 'b' chunk by chunk.
+ *
+ * Iterates through stack 'a', pushing nodes belonging to the current chunk to 'b'.
+ * If the pushed node in 'b' has a value less than the median of 'b', rotates 'b'.
+ * Increments the chunk index once no nodes of the current chunk remain in 'a'.
+ *
+ * If stack 'a' has 3 or fewer elements, sorts it directly and returns 3.
+ *
+ * @param a Double pointer to stack 'a'.
+ * @param b Double pointer to stack 'b'.
+ * @param max_chunk The highest chunk index to process.
+ * @return int Returns 3 if sorted directly due to small stack size, 0 otherwise.
+ */
 int	move_chunks_to_b(t_stack **a, t_stack **b, int max_chunk)
 {
 	t_stack		*tmp;

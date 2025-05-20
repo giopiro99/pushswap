@@ -6,26 +6,22 @@
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:16:58 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/28 12:37:14 by gpirozzi         ###   ########.fr       */
+/*   Updated: 2025/05/20 16:48:37 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack)
-{
-	t_stack	*current;
-
-	current = stack;
-	while (current)
-	{
-		ft_printf("numero corrente: %d\n", current->nbr);
-		ft_printf("indice del numero: %d\n", current->index);
-		current = current->next;
-	}
-	ft_printf("\n");
-}
-
+/**
+ * @brief Initializes stacks 'a' and 'tmp' with numbers parsed from input.
+ *
+ * Depending on the flags value, it calls init_stack_a with different flags.
+ *
+ * @param a Double pointer to stack 'a' to initialize.
+ * @param tmp Double pointer to a temporary stack to initialize.
+ * @param numbers Array of strings representing the numbers to push into the stacks.
+ * @param flags Flag to indicate parsing mode (1 for split input, 0 otherwise).
+ */
 static void	ft_bank_data(t_stack **a, t_stack **tmp, char **numbers, int flags)
 {
 	if (flags == 1)
@@ -40,6 +36,16 @@ static void	ft_bank_data(t_stack **a, t_stack **tmp, char **numbers, int flags)
 	}
 }
 
+/**
+ * @brief Entry point of the program that initializes stacks and performs sorting.
+ *
+ * Parses command-line arguments, initializes stacks, checks if the stack is sorted,
+ * indexes the list, assigns chunk sizes, moves chunks between stacks, and finally sorts the stacks.
+ *
+ * @param argc Argument count.
+ * @param argv Argument vector.
+ * @return int Returns 0 on successful completion.
+ */
 int	main(int argc, char **argv)
 {
 	t_stack		*a;
@@ -52,7 +58,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	tmp = NULL;
 	if (argc <= 1)
-		return (ft_printf("\n"));
+		return (ft_printf(1, "\n"));
 	else if (argc == 2)
 	{
 		numbers = ft_split(argv[1], ' ');
