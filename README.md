@@ -19,5 +19,44 @@ push_swap is a sorting algorithm project developed in C that aims to sort data o
 1. Compile the project with:
 
 ```bash
-make
+  make
+Run push_swap with a list of integers:
+
+bash
+Copy
+Edit
+./push_swap 3 2 5 1 4
+Run the checker to validate operations:
+
+bash
+Copy
+Edit
+./checker 3 2 5 1 4
+You can then input the operations manually or pipe the output of push_swap to checker:
+
+bash
+Copy
+Edit
+./push_swap 3 2 5 1 4 | ./checker 3 2 5 1 4
+Objective
+The main objective is to produce the shortest possible sequence of operations to sort the stack efficiently.Run push_swap with a list of integers:
+
+bash
+Copy
+Edit
+./push_swap 3 2 5 1 4
+Run the checker to validate operations:
+
+bash
+Copy
+Edit
+./checker 3 2 5 1 4
+You can then input the operations manually or pipe the output of push_swap to checker:
+
+bash
+Copy
+Edit
+./push_swap 3 2 5 1 4 | ./checker 3 2 5 1 4
+Objective
+The main objective is to produce the shortest possible sequence of operations to sort the stack efficiently.
 
