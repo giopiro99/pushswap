@@ -71,4 +71,25 @@ The project uses a `Makefile` to compile the source code and the custom `libft` 
 Run the program with a list of integers as arguments:
 
 ```bash
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
 ./push_swap 2 1 3 6 5 8
+```
+
+```text
+.
+├── Makefile            # Compilation rules
+├── srcs/
+│   ├── push_swap.c     # Main entry point
+│   ├── stack_init.c    # Stack parsing and initialization
+│   ├── errors_detector.c # Syntax and duplicate checks
+│   ├── index_list.c    # Logic for normalizing values (indexing)
+│   ├── for_chunks.c    # Logic for chunk assignment and movement
+│   ├── insertion_sort.c # Logic to sort and push back from B to A
+│   ├── utils.c         # Stack utilities (len, min, max, sorted check)
+│   ├── util2.c         # Move cost optimization & sort_three
+│   ├── push.c          # pa, pb operations
+│   ├── swap.c          # sa, sb, ss operations
+│   ├── rotate.c        # ra, rb, rr operations
+│   ├── reverse_rotate.c # rra, rrb, rrr operations
+│   └── checker.c       # Bonus verification program
+└── libft/              # Custom C library
